@@ -3,7 +3,12 @@
     <h1 class="text-center">Todo App</h1>
     <input v-model="todoText" type="text" placeholder="Type todo" @keyup.enter="addTodo">
     <hr>
-    <Todo v-for="todo in todos" :key="todo.id" :todo="todo" @toggle-checkbox="toggleCheckbox"></Todo>
+    <Todo 
+      v-for="todo in todos" 
+      :key="todo.id" 
+      :todo="todo" 
+      @toggle-checkbox="toggleCheckbox">
+    </Todo>
   </div>
 </template>
 
