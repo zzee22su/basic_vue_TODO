@@ -3,7 +3,7 @@
     <h1 class="text-center">Todo App</h1>
     <input v-model="todoText" type="text" placeholder="Type todo" @keyup.enter="addTodo">
     <hr>
-    <Todo v-for="todo in todos" :key="todo.id" :todo="todo"></Todo>
+    <Todo v-for="todo in todos" :key="todo.id" :todo="todo" @toggle-checkbox="toggleCheckbox"></Todo>
   </div>
 </template>
 
@@ -30,6 +30,12 @@ export default {
         checked: false
       });
       this.todoText = '';
+    },
+    toggleCheckbox({id, checked}) {
+      const index = this.todos.findIndex(todo => {
+        return todo.id === id;
+      });
+      this.todos[index].checked = checked;
     }
   }
 }
