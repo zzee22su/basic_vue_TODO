@@ -1,11 +1,13 @@
 <template>
-    <div>
-      <input type="checkbox" :checked="todo.checked" @change="toggleCheckbox">
-      <span 
-        :class="todo.checked ? 'text-muted' : ''" 
-        :style="todo.checked ? 'text-decoration:line-through': ''">
-        {{ todo.text }}
-      </span>
+    <div class="d-flex">
+        <input type="checkbox" :checked="todo.checked" @change="toggleCheckbox">
+        <span 
+        class="ml-3 flex-grow-1"
+            :class="todo.checked ? 'text-muted' : ''" 
+            :style="todo.checked ? 'text-decoration:line-through': ''">
+            {{ todo.text }}
+        </span>
+        <button class="btn btn-danger btn-sm" @click="clickDelete">Delete</button>
     </div>
 </template>
 
@@ -23,6 +25,9 @@ export default {
                 id: this.todo.id,
                 checked: e.target.checked
             })
+        },
+        clickDelete() {
+            this.$emit('click-delete', this.todo.id)
         }
     }
 
