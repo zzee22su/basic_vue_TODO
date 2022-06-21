@@ -3,9 +3,12 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-exported default new Vuex.Store({
+export default new Vuex.Store({
     state: {//데이터가 들어가는 곳 
-    
+        todos : [
+            { id: 1, text: 'buy a car', checked: false},
+            { id: 2, text: 'play game', checked: false},
+          ]
     },
     mutations: {//state에 있는 데이터를 바꾸는 것은 mutations에서만 가능하다. 
 
