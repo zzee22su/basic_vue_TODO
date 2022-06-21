@@ -2,12 +2,9 @@
   <div id="app" class="container">
     <h1 class="text-center">Todo App</h1>
     <CompltedTodo></CompltedTodo>
-    <AddTodo @add-todo="addTodo"></AddTodo>
+    <AddTodo></AddTodo>
     <hr>
-    <TodoList
-      @toggle-checkbox="toggleCheckbox"
-      @click-delete="deleteTodo">
-    </TodoList>
+    <TodoList></TodoList>
   </div>
 </template>
 
@@ -30,29 +27,29 @@ export default {
     }
   },
   methods: {
-    addTodo(value) {
-      this.todos.push({
-        id: Math.random(),
-        text: value,
-        checked: false
-      });
-      this.todoText = '';
-    },
-    toggleCheckbox({id, checked}) {
-      const index = this.todos.findIndex(todo => {
-        return todo.id === id;
-      });
-      this.todos[index].checked = checked;
-    },
-    deleteTodo(id) {
+    // addTodo(value) {
+    //   this.todos.push({
+    //     id: Math.random(),
+    //     text: value,
+    //     checked: false
+    //   });
+    //   this.todoText = '';
+    // },
+    // toggleCheckbox({id, checked}) {
+    //   const index = this.todos.findIndex(todo => {
+    //     return todo.id === id;
+    //   });
+    //   this.todos[index].checked = checked;
+    // },
+    // deleteTodo(id) {
       // 방법1
       // const index = this.todos.findIndex(todo => {
       //   return todo.id === id;
       // });
       // this.todos.splice(index, 1);
       // 방법2
-      this.todos = this.todos.filter(todo => todo.id !== id);
-    }
+      // this.todos = this.todos.filter(todo => todo.id !== id);
+    // }
   }
 }
 </script>
