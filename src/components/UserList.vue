@@ -25,10 +25,21 @@ export default {
         // state에서 users를 가지고 올 때, 다른 이름을 사용하고 싶다면 
         // mapState([]) -> array가 아닌 mapSTate({}) -> object로 가져오면 된다.
         // ex)  ...mapState({people: 'users'})
-        ...mapState( [
-            //이름만 적어주면 알아서 mapping해준다. 
-            'users'
-        ])        
+        
+        //modules 방법 1
+        // ...mapState({
+        //     //이름만 적어주면 알아서 mapping해준다. 
+        //     users: state => state.user.users
+        // })        
+
+        //modules 방법 2 
+        // ...mapState('user', {
+        //     users: state => state.user.users
+        // })   
+
+        //modules 방법 3  이름 바꾸지 않을 시, object가({}) 아닌 array로도([]) 가능하다.
+        ...mapState('user', ['users'])  
+
         // users() {
         //     return this.$store.state.users;
         // },
@@ -41,7 +52,7 @@ export default {
     methods: {
         // mapActions는 methods 안에 넣어준다. 
         // getUsers를 함수로 사용할 수 있다. (created()에서 호출하였음.)
-        ...mapActions(['getUsers'])
+        ...mapActions('user', ['getUsers'])
         // getUsers() {
         //    this.$store.dispatch('getUsers');
         // }
