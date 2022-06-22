@@ -7,11 +7,8 @@
 <script>
 export default {
     computed: {
-        todos() {
-            return this.$store.state.todos;
-        },
         numberOfCompledtedTodo() {
-            return this.todos.filter(todo => todo.checked).length;
+            return this.$store.getters.numberOfCompledtedTodo;
         }
     }
 

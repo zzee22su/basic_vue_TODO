@@ -8,6 +8,7 @@
             {{ todo.text }}
         </span>
         <button class="btn btn-danger btn-sm" @click="clickDelete">Delete</button>
+        {{ numberOfCompledtedTodo }}
     </div>
 </template>
 
@@ -19,6 +20,13 @@ export default {
             required: true
         }
     },
+
+    computed: {
+        numberOfCompledtedTodo() {
+            return this.$store.getters.numberOfCompledtedTodo;
+        }
+    },
+
     methods: {
         toggleCheckbox(e) {
             // this.$emit('toggle-checkbox', {
